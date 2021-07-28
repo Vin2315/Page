@@ -1,0 +1,267 @@
+/* colores prmarios a poner */
+:root {
+	--white: #ffffff;
+	--dark: #212121;
+	--primario: #ffc107;
+	--secundario: #0097a7;
+	--gris: #a72b2b;
+}
+
+html {
+	font-size: 62.5%; /* recomienda poner para mantener el px y el rem */
+	box-sizing: border-box; /*ayuda a que el padin tenga un valor fijo */
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit; /* significa el * que selecciona el html y aplica el boxsizing border el after es para agregar mas texto si quiero */
+}
+
+body {
+	font-size: 16px; /* 1rem es = 10px para table pantalla pequena Y aplica a toda la tabla*/
+	font-family: 'krub', sans-serif; /* cambio tipo texto despues de pegar el estilo aplica a todo el texto pagina */
+	/* a este se le pone gradian de a baja hacia arriba to top con color blanco que inicia desde a bajo con eun cambio rapido de 20% */
+	background-image: linear-gradient(to top, #dfe9f3 0%, var(--white) 100%);
+}
+
+/* copado de https://cssmatic.com/box-shadow */
+.sombra {
+	box-shadow: inset -2px -19px 64px 7px rgba(116, 110, 116, 0.62);
+	background-color: #fdfdfd;
+	padding: 2rem;
+	border-radius: 2rem;
+}
+
+/* tipografia */
+
+h1 {
+	font-size: 3.8rem; /* talla de texto */
+}
+
+h2 {
+	font-size: 2.8rem; /* talla de texto */
+}
+
+h3 {
+	font-size: 1.8rem; /* talla de texto */
+}
+
+h1,
+h2,
+h3 {
+	text-align: center; /* centra el texto */
+}
+.titre span {
+	font-size: 2rem; /* talla de texto */
+}
+.container {
+	max-width: 120rem; /* Y solamente este espacio disponible de 120*/
+	margin: 0 auto; /* remplaza a margin-top: 100px; margin-right: auto; margin-bottom: margin-left: auto; 0; 12,3,6,9, 12  */
+}
+
+.boton {
+	background-color: var(--primario); /* color boton AMARILLO */
+	color: var(--dark); /* color letras BLANCO  */
+	padding: 1rem 3rem; /* talla del boton */
+	margin-top: 2.5rem; /* espacios de el botosnes y los de a lado costado */
+	/*t	font-size: 0; /*talla del boton  */
+	text-decoration: none; /* elimino la sulineado del texto  */
+	text-transform: uppercase; /* cambiamos l texto de minusculas a mayusculas*/
+	font-weight: bold; /*pone el boton en negrita  */
+	border-radius: 0.5rem; /*bordes redonde del boton */
+	width: 80%; /* el largo del boton pero para ajustarle lo hacemos@media*/
+	text-align: center; /*contrado para que no tome espacio */
+	border: none;
+}
+/* mejoro la talla del boton */
+@media (min-width: 400px) {
+	.btn {
+		width: auto; /* guarda el tamano del mismo en cada pagina  */
+	}
+}
+
+.nav-bg {
+	background-color: var(--secundario);
+	/* padding: 20px; /* agrando mi caja donde tengo mis textos */
+	/*display: block; /* se pone uno debajo del otro sin importar tamano o contenidoalla de texto */
+}
+.navegacion-principal {
+	display: flex; /* Ponemos FLEXBOX Separa palabras menu con justufi content */
+	flex-direction: column; /* mi menu se pone el columna cuando se hace peque la pagina*/
+}
+/*RESPONCI A MI BARRA */
+@media (min-width: 768px) {
+	.navegacion-principal {
+		flex-direction: row; /* separa las menu en lina con opcion row */
+		justify-content: space-between; /* muebe contenido al horizontal; mi texto a la izquierda flex-start*/
+	}
+}
+.navegacion-principal a {
+	color: var(--white); /*color de las letras de la imagen */
+	text-decoration: none; /*quita subliniado del texto */
+	font-size: 2rem; /*tamano de letras del menu*/
+	font-weight: 500; /*es poner o no negrita al texto del menu*/
+	padding: 1.9rem; /*ancho de mi barra*/
+	display: block; /*senala el espacio */
+	text-align: center; /*pone mi menu en columnas*/
+}
+.navegacion-principal a:hover {
+	background-color: rgb(123, 230, 61);
+	color: var(--dark);
+}
+
+/* PARTE 2 trabajamos con el nombre e imagenes de fondo  */
+/*
+.hero {
+	background-image: url(../img/fond.jpg); /*pego imagen de fondo */
+
+.hero {
+	background-image: url(../acces/photos/fond.jpg); /*pego imagen de fondo */
+	background-size: cover; /*altura */
+	height: 450px; /*cubre toda la imagen el espacio pagina*/
+	position: relative;
+	margin-bottom: 2rem; /*da espacio para el otro cuadro */
+}
+
+.contenue-hero {
+	position: absolute; /* pone el lugar de la sombra */
+	background-color: rgba(0, 0, 0, 0.3); /*coloca la sombra */
+
+	width: 100%; /*la altura del mismo */
+	height: 100%; /*ancho de mismo  */
+
+	display: flex; /* se coloco todo texto superior a lo largo */
+	flex-direction: column; /*pone texto en columnas */
+	align-items: center; /*texto de caja alinea horizontal cada una */
+	justify-content: center; /*texto de caja alinea verticalmente cada una */
+}
+
+.contenue-hero h2,
+.contenue-hero p {
+	color: var(--white); /*PONE DE COLOR BLANCO A LAS LETRAS DENTRO GRAFICAc*/
+}
+.ubicacion {
+	display: flex; /* pongo mi ubicaciôn de mis figura*/
+	align-items: flex-end; /* hace que mi ciudad se ponga al costado del dibujo*/
+}
+
+/* detalle de los servicios que se entrega  */
+/* pongo @ es para aplicar responsi a la parte de servicios */
+
+.servicios {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	/* agrega propiedaddes de ccs grid permite definir la ubicacion y tamano de los elementos sitio web*/
+	/*grid: 200px 800px / 300px 300px; /* defino mis columnas definno mi contenido de arriba hacia a bajo en las columnas remplaza grid-template-rows grid-template-columns */
+}
+
+.servicio {
+	display: flex;
+	flex-direction: column; /* alinea toda la div del boton */
+	align-items: center; /* alinea el contenido*/
+}
+.servicios h3 {
+	color: rgb(72, 61, 230);
+	align-items: center; /* alinea el contenido*/
+	padding-inline-end: 0%;
+}
+
+.text {
+	height: 50rem; /*en el espacio hago mi cuadrado con estas dimenciones */
+	width: 20rem; /*en el espacio hago mi cuadrado con estas dimenciones */
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.servicios p {
+	line-height: 1; /* espacio de linea entre texto*/
+}
+
+@media (max-width: 750px) {
+	.servicios {
+		flex-direction: column;
+	}
+	.text {
+		height: 350px;
+	}
+}
+.servicios .iconos {
+	height: 15rem; /*en el espacio hago mi cuadrado con estas dimenciones */
+	width: 15rem; /*en el espacio hago mi cuadrado con estas dimenciones */
+	background-color: #7bc62d;
+	border-radius: 50%; /* con este % TRASFORMO MI cuadrado en circulo*/
+	display: flex; /* les pone el uno al frente del otro centrar horizontar y vertical  */
+
+	justify-content: space-evenly; /*  posiciona mis iconos   */
+	align-items: center; /*  los pone verticalmente   */
+}
+
+/*  Formulario */
+/*  contacto */
+.formulario {
+	background-color: #857979;
+	width: min(
+		60rem,
+		100%
+	); /* USa VQLOR MAS PEQUEno da el ancho del formulario se mzntiene*/
+	margin: 0 auto;
+	padding: 2rem;
+	border-radius: 1rem;
+}
+
+.formulario fieldset {
+	border: none;
+}
+
+.formulario legend {
+	text-align: center;
+	font-size: 1.8rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	margin-bottom: 2rem;
+	color: #ffc107;
+}
+
+/*  campos de formulario */
+
+.container-campus {
+	width: 500px;
+	background: rgb(158, 67, 67);
+	border-radius: 5px;
+}
+.container-campus .campo {
+	font-size: 20px;
+	font-weight: 500;
+	padding: 0px 5px;
+}
+.container-campus form {
+	margin: 35px 30px;
+}
+.campo label {
+	color: var(--white);
+	font-weight: bold;
+	margin-bottom: 5rem;
+	display: block;
+}
+
+.input-text {
+	width: 100%;
+	border: none;
+	padding: 1.5rem;
+	border-radius: 0.5rem;
+}
+
+.campo input {
+	background-color: #e70f0f;
+}
+
+.mystyle {
+	background-color: #0a054b;
+}
+
+.mystyle2 {
+	background-color: #dba096;
+}
